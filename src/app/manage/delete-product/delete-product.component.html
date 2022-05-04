@@ -1,0 +1,12 @@
+<form [formGroup]="productForm" (ngSubmit)="deleteProduct()" class="form-container">
+  <h1 class="form-title">
+    Delete product
+  </h1>
+  <div class="form">
+    <mat-form-field appearance="standard">
+      <mat-label>Sku</mat-label>
+      <input matInput type="text" formControlName="productSku" />
+    </mat-form-field>
+    <button mat-button class="button">Delete product</button>
+  </div>
+</form>

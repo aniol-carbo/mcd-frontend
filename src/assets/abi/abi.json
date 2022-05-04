@@ -1,0 +1,106 @@
+[
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "name": "_description",
+        "type": "string"
+      },
+      {
+        "name": "_qty",
+        "type": "uint256"
+      }
+    ],
+    "name": "AddProduct",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      }
+    ],
+    "name": "getProductQuantity",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "name": "_qty",
+        "type": "uint256"
+      }
+    ],
+    "name": "ReplenishStock",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "InventoryAresh",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "name": "_qty",
+        "type": "uint256"
+      }
+    ],
+    "name": "Order",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      }
+    ],
+    "name": "RemoveProduct",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
