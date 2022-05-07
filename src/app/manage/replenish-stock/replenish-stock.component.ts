@@ -5,11 +5,13 @@ declare let window: any;
 import {environment} from "../../../environments/environment";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-replenish-stock',
   templateUrl: './replenish-stock.component.html',
-  styleUrls: ['./replenish-stock.component.scss']
+  styleUrls: ['./replenish-stock.component.scss'],
+  providers: [MatSnackBar]
 })
 export class ReplenishStockComponent implements OnInit {
 
@@ -26,7 +28,7 @@ export class ReplenishStockComponent implements OnInit {
     productQuantity: ['', Validators.required]
   });
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.connectWithContract();
@@ -68,6 +70,7 @@ export class ReplenishStockComponent implements OnInit {
       this.provider.waitForTransaction(tx.hash)
         .then((response: any) => {
           //action after transaction is mined
+          this.snackBar.open(`Successfully replenished ${productQuantity} items`, 'OK', {panelClass: 'success-snackbar'});
           console.log(response);
         })
     }).catch((error: any) => {
@@ -75,8 +78,10 @@ export class ReplenishStockComponent implements OnInit {
       //   if (this.receiverAddress === undefined) alert("Receiver address cannot be empty!");
       //   else alert("Invalid receiver address!");
       // } else {
-      console.log(error.code);
+      // console.log(error.code);
       // }
+      this.snackBar.open(error.code, 'OK', {panelClass: 'error-snackbar'});
+      console.log(error);
     });
   }
 

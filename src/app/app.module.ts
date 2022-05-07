@@ -20,6 +20,7 @@ import { AddProductComponent } from './manage/add-product/add-product.component'
 import { OrderProductComponent } from './manage/order-product/order-product.component';
 import { DeleteProductComponent } from './manage/delete-product/delete-product.component';
 import { ReplenishStockComponent } from './manage/replenish-stock/replenish-stock.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ReplenishStockComponent } from './manage/replenish-stock/replenish-stoc
     MatInputModule,
     BrowserAnimationsModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]

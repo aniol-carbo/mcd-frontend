@@ -5,11 +5,13 @@ declare let window: any;
 import {environment} from "../../../environments/environment";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-delete-product',
   templateUrl: './delete-product.component.html',
-  styleUrls: ['./delete-product.component.scss']
+  styleUrls: ['./delete-product.component.scss'],
+  providers: [MatSnackBar]
 })
 export class DeleteProductComponent implements OnInit {
 
@@ -25,7 +27,7 @@ export class DeleteProductComponent implements OnInit {
     productSku: ['', Validators.required],
   });
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.connectWithContract();
@@ -66,6 +68,7 @@ export class DeleteProductComponent implements OnInit {
       this.provider.waitForTransaction(tx.hash)
         .then((response: any) => {
           //action after transaction is mined
+          this.snackBar.open(`Successfully deleted product '${productSku}'`, 'OK', {panelClass: 'success-snackbar'});
           console.log(response);
         })
     }).catch((error: any) => {
@@ -73,8 +76,10 @@ export class DeleteProductComponent implements OnInit {
       //   if (this.receiverAddress === undefined) alert("Receiver address cannot be empty!");
       //   else alert("Invalid receiver address!");
       // } else {
-      console.log(error.code);
+      // console.log(error.code);
       // }
+      this.snackBar.open(error.code, 'OK', {panelClass: 'error-snackbar'});
+      console.log(error);
     });
   }
 
