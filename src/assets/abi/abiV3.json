@@ -33,25 +33,11 @@
         "type": "string"
       }
     ],
-    "name": "getProductQuantity",
+    "name": "GetProductQuantity",
     "outputs": [
       {
         "name": "",
         "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "getProductIds",
-    "outputs": [
-      {
-        "name": "",
-        "type": "string[]"
       }
     ],
     "payable": false,
@@ -77,6 +63,20 @@
     "type": "function"
   },
   {
+    "constant": true,
+    "inputs": [],
+    "name": "GetProductIds",
+    "outputs": [
+      {
+        "name": "",
+        "type": "string[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "constant": false,
     "inputs": [
       {
@@ -88,7 +88,7 @@
         "type": "uint256"
       }
     ],
-    "name": "Order",
+    "name": "OrderProduct",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",

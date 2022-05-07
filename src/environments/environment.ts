@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   contractAddressV1: "0xCD620100A7D90E22A60E5c1a78A5029d0daC7828",
   contractAddressV2: "0x8Fb8b7A6CAF5B49898Bd565B9807eB7472d72027",
-  contractAddressV3: "0xD8d093843341FB6EA0d3514D971Ba03595C216f0"
+  contractAddressV3: "0x15c7C25AA9Ef31B2A9B77967226A011A49F5a582"
 };
 
 /*
