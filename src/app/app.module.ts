@@ -21,6 +21,7 @@ import { OrderProductComponent } from './manage/order-product/order-product.comp
 import { DeleteProductComponent } from './manage/delete-product/delete-product.component';
 import { ReplenishStockComponent } from './manage/replenish-stock/replenish-stock.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     BrowserAnimationsModule,
     MatIconModule,
     ReactiveFormsModule,
-    OverlayModule
+    OverlayModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

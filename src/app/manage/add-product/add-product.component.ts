@@ -23,6 +23,8 @@ export class AddProductComponent implements OnInit {
   signerObject: any;
   signerAddress: any;
 
+  isLoading: boolean = false;
+
   productForm: FormGroup = this.formBuilder.group({
     productSku: ['', Validators.required],
     productName: ['', Validators.required],
@@ -84,9 +86,10 @@ export class AddProductComponent implements OnInit {
     const productQuantity = this.productForm.controls['productQuantity'].value;
 
     this.contract.AddProduct(productSku, productName, productDescription, productQuantity).then((tx: any) => {
+      this.isLoading = true;
       this.provider.waitForTransaction(tx.hash)
         .then((response: any) => {
-          //action after transaction is mined
+          this.isLoading = false;
           this.snackBar.open(`Successfully added product '${productSku}'`, 'OK', {panelClass: 'success-snackbar'});
           console.log(response);
         })

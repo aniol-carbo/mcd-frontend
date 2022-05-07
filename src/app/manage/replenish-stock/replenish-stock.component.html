@@ -14,3 +14,6 @@
     <button mat-button class="button">Replenish stock</button>
   </div>
 </form>
+<div *ngIf="isLoading" class="spinner-container">
+  <mat-spinner></mat-spinner>
+</div>
