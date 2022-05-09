@@ -22,6 +22,11 @@ import { DeleteProductComponent } from './manage/delete-product/delete-product.c
 import { ReplenishStockComponent } from './manage/replenish-stock/replenish-stock.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatSelectModule} from "@angular/material/select";
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -47,9 +52,13 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatIconModule,
     ReactiveFormsModule,
     OverlayModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

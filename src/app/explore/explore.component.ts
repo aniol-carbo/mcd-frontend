@@ -1,50 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import {ethers} from "ethers";
-import abi from "../../assets/abi/abiV2.json";
-declare let window: any;
-import {environment} from "../../environments/environment";
+import {FormControl, FormGroup} from "@angular/forms";
+import {DbService} from "../services/db.service";
 
 @Component({
   selector: 'app-explore',
   templateUrl: './explore.component.html',
-  styleUrls: ['./explore.component.css']
+  styleUrls: ['./explore.component.scss'],
+  providers: [DbService]
 })
 export class ExploreComponent implements OnInit {
 
-  contract: any;
-  abi: any;
+  selectedStatus: string = "";
+  selectedOrder: string = "";
 
-  provider: any;
-  contractAddress: string = environment.contractAddressV3;
-  signerObject: any;
-  signerAddress: any;
+  status: Option[] = [
+    {value: 'sold', viewValue: 'Sold'},
+    {value: 'added', viewValue: 'Added'},
+    {value: 'replenished', viewValue: 'Replenished'}
+  ];
 
-  constructor() { }
+  orderBy: Option[] = [
+    {value: 'asc', viewValue: 'De menor a mayor'},
+    {value: 'desc', viewValue: 'De mayor a menor'}
+  ];
+
+  range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
+
+  constructor(private dbService: DbService) { }
 
   ngOnInit(): void {
   }
 
-  loadAbi(): void {
-    this.abi = abi;
+  searchItems(): void {
+    const startDate = Math.floor(new Date(this.range.controls['start'].value).getTime() / 1000);
+    const endDate = Math.floor(new Date(this.range.controls['end'].value).getTime() / 1000);
+
+    this.dbService.getItems(this.selectedStatus, startDate, endDate, this.selectedOrder).then((result: any) => {
+      console.log(result)
+    })
   }
 
-  initializeContract(): void {
-    this.contract = new ethers.Contract(this.contractAddress, this.abi, this.signerObject);
-    console.log(this.contract)
-  }
+}
 
-  getMetamaskInfo(): void {
-    this.provider = window.provider;
-    this.signerObject = this.provider.getSigner();
-    this.signerObject.getAddress().then((value: any) => {
-      this.signerAddress = value;
-    });
-  }
-
-  connectWithContract(): void {
-    this.loadAbi();
-    this.getMetamaskInfo();
-    this.initializeContract();
-  }
-
+interface Option {
+  value: string;
+  viewValue: string;
 }
