@@ -29,6 +29,9 @@ export class ExploreComponent implements OnInit {
     end: new FormControl(),
   });
 
+  displayedColumns: string[] = ['_sku', 'total'];
+  dataSource: any = [];
+
   constructor(private dbService: DbService) { }
 
   ngOnInit(): void {
@@ -40,12 +43,17 @@ export class ExploreComponent implements OnInit {
 
     this.dbService.getItems(this.selectedStatus, startDate, endDate, this.selectedOrder).then((result: any) => {
       console.log(result)
+      this.dataSource = result;
     })
   }
-
 }
 
 interface Option {
   value: string;
   viewValue: string;
+}
+
+interface Item {
+  _sku: string;
+  total: number;
 }

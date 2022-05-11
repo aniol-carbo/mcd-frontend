@@ -26,6 +26,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatSelectModule} from "@angular/material/select";
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatSelectModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
