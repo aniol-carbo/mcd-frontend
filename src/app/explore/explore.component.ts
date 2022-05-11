@@ -29,7 +29,7 @@ export class ExploreComponent implements OnInit {
     end: new FormControl(),
   });
 
-  displayedColumns: string[] = ['_sku', 'total'];
+  displayedColumns: string[] = ['sku', 'name', 'total'];
   dataSource: any = [];
 
   constructor(private dbService: DbService) { }
@@ -54,6 +54,6 @@ interface Option {
 }
 
 interface Item {
-  _sku: string;
+  sku: string;
   total: number;
 }
