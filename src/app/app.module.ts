@@ -27,6 +27,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from "@angular/material/table";
+import {ExploreByPriceComponent} from "./explore/explore-by-price/explore-by-price.component";
+import {ExploreByQuantityComponent} from "./explore/explore-by-quantity/explore-by-quantity.component";
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import {MatTableModule} from "@angular/material/table";
     ConnectWalletComponent,
     LandingComponent,
     ExploreComponent,
+    ExploreByQuantityComponent,
+    ExploreByPriceComponent,
     ManageComponent,
     AddProductComponent,
     OrderProductComponent,
