@@ -16,4 +16,14 @@ export class DbService {
     toPromise();
   }
 
+  getProductPrice(productSku: string, date: number): Promise<any>{
+    return this.http.get(`http://localhost:3000/api/db/product/price?productSku=${productSku}&date=${date}`).
+    toPromise();
+  }
+
+  getProductQuantity(productSku: string, date: number): Promise<any>{
+    return this.http.get(`http://localhost:3000/api/db/product/quantity?productSku=${productSku}&date=${date}`).
+    toPromise();
+  }
+
 }
