@@ -41,7 +41,7 @@ export class ExploreByQuantityComponent implements OnInit {
     const startDate = Math.floor(new Date(this.range.controls['start'].value).getTime() / 1000);
     const endDate = Math.floor(new Date(this.range.controls['end'].value).getTime() / 1000);
 
-    this.dbService.getItems(this.selectedStatus, startDate, endDate, this.selectedOrder).then((result: any) => {
+    this.dbService.getItemsByQuantity(this.selectedStatus, startDate, endDate, this.selectedOrder).then((result: any) => {
       console.log(result)
       this.dataSource = result;
     })
