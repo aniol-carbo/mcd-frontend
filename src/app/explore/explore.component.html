@@ -2,13 +2,25 @@
   <div class="block">
     <button mat-button class="button" [routerLink]="['/explore/quantity']">
       <mat-icon class="icon">apps</mat-icon>
-      <span>By quantity</span>
+      <span>Product quantity</span>
     </button>
   </div>
   <div class="block">
     <button mat-button class="button" [routerLink]="['/explore/price']">
       <mat-icon class="icon">attach_money</mat-icon>
-      <span>By price</span>
+      <span>Product price</span>
+    </button>
+  </div>
+  <div class="block">
+    <button mat-button class="button" [routerLink]="['/explore/transactions/quantity']">
+      <mat-icon class="icon">apps</mat-icon>
+      <span>Transactions by quantity</span>
+    </button>
+  </div>
+  <div class="block">
+    <button mat-button class="button" [routerLink]="['/explore/transactions/price']">
+      <mat-icon class="icon">attach_money</mat-icon>
+      <span>Transactions by price</span>
     </button>
   </div>
 </div>

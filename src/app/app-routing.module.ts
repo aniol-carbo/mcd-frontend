@@ -10,6 +10,8 @@ import {DeleteProductComponent} from "./manage/delete-product/delete-product.com
 import {ReplenishStockComponent} from "./manage/replenish-stock/replenish-stock.component";
 import {ExploreByQuantityComponent} from "./explore/explore-by-quantity/explore-by-quantity.component";
 import {ExploreByPriceComponent} from "./explore/explore-by-price/explore-by-price.component";
+import {ProductPriceComponent} from "./explore/product-price/product-price.component";
+import {ProductQuantityComponent} from "./explore/product-quantity/product-quantity.component";
 
 const routes: Routes = [
   { path: '', component: ConnectWalletComponent },
@@ -20,8 +22,10 @@ const routes: Routes = [
   { path: 'manage/delete_product', component: DeleteProductComponent, pathMatch: 'full' },
   { path: 'manage/replenish_stock', component: ReplenishStockComponent, pathMatch: 'full' },
   { path: 'explore', component: ExploreComponent },
-  { path: 'explore/quantity', component: ExploreByQuantityComponent },
-  { path: 'explore/price', component: ExploreByPriceComponent }
+  { path: 'explore/quantity', component: ProductQuantityComponent },
+  { path: 'explore/price', component: ProductPriceComponent },
+  { path: 'explore/transactions/quantity', component: ExploreByQuantityComponent },
+  { path: 'explore/transactions/price', component: ExploreByPriceComponent }
 ];
 
 @NgModule({
