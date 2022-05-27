@@ -29,6 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from "@angular/material/table";
 import {ExploreByPriceComponent} from "./explore/explore-by-price/explore-by-price.component";
 import {ExploreByQuantityComponent} from "./explore/explore-by-quantity/explore-by-quantity.component";
+import {ProductPriceComponent} from "./explore/product-price/product-price.component";
+import {MatCardModule} from "@angular/material/card";
+import {ProductQuantityComponent} from "./explore/product-quantity/product-quantity.component";
 
 
 @NgModule({
@@ -44,7 +47,9 @@ import {ExploreByQuantityComponent} from "./explore/explore-by-quantity/explore-
     AddProductComponent,
     OrderProductComponent,
     DeleteProductComponent,
-    ReplenishStockComponent
+    ReplenishStockComponent,
+    ProductPriceComponent,
+    ProductQuantityComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +67,8 @@ import {ExploreByQuantityComponent} from "./explore/explore-by-quantity/explore-
     MatSelectModule,
     MatNativeDateModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]

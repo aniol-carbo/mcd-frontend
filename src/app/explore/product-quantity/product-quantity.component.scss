@@ -1,0 +1,35 @@
+.main-container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 80px;
+  .search-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding-top: 10px;
+
+    width: 75%;
+    margin: auto;
+    .button-container {
+      .button {
+        background-color: aquamarine;
+      }
+    }
+  }
+
+  .card {
+    width: 50%;
+    margin: auto;
+    .product-container {
+      h4 {
+        text-align: center;
+      }
+    }
+  }
+}
