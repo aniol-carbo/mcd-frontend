@@ -1,0 +1,25 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: auto;
+  .form-title {
+    text-align: center;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    .button {
+      width: 200px;
+      margin: auto;
+      background-color: aquamarine;
+    }
+  }
+}
+.spinner-container {
+  width: 30%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}

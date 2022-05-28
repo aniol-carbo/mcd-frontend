@@ -32,6 +32,7 @@ import {ExploreByQuantityComponent} from "./explore/explore-by-quantity/explore-
 import {ProductPriceComponent} from "./explore/product-price/product-price.component";
 import {MatCardModule} from "@angular/material/card";
 import {ProductQuantityComponent} from "./explore/product-quantity/product-quantity.component";
+import {ChangePriceComponent} from "./manage/change-price/change-price.component";
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import {ProductQuantityComponent} from "./explore/product-quantity/product-quant
     OrderProductComponent,
     DeleteProductComponent,
     ReplenishStockComponent,
+    ChangePriceComponent,
     ProductPriceComponent,
     ProductQuantityComponent
   ],

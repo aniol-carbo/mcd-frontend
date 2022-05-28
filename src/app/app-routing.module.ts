@@ -12,6 +12,7 @@ import {ExploreByQuantityComponent} from "./explore/explore-by-quantity/explore-
 import {ExploreByPriceComponent} from "./explore/explore-by-price/explore-by-price.component";
 import {ProductPriceComponent} from "./explore/product-price/product-price.component";
 import {ProductQuantityComponent} from "./explore/product-quantity/product-quantity.component";
+import {ChangePriceComponent} from "./manage/change-price/change-price.component";
 
 const routes: Routes = [
   { path: '', component: ConnectWalletComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'manage/order_product', component: OrderProductComponent, pathMatch: 'full' },
   { path: 'manage/delete_product', component: DeleteProductComponent, pathMatch: 'full' },
   { path: 'manage/replenish_stock', component: ReplenishStockComponent, pathMatch: 'full' },
+  { path: 'manage/change_price', component: ChangePriceComponent, pathMatch: 'full' },
   { path: 'explore', component: ExploreComponent },
   { path: 'explore/quantity', component: ProductQuantityComponent },
   { path: 'explore/price', component: ProductPriceComponent },
