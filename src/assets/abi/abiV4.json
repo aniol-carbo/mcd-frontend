@@ -1,0 +1,293 @@
+[
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "name": "_description",
+        "type": "string"
+      },
+      {
+        "name": "_qty",
+        "type": "uint256"
+      },
+      {
+        "name": "_price",
+        "type": "uint256"
+      }
+    ],
+    "name": "AddProduct",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "name": "_price",
+        "type": "uint256"
+      }
+    ],
+    "name": "ChangePrice",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "name": "_qty",
+        "type": "uint256"
+      }
+    ],
+    "name": "OrderProduct",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      }
+    ],
+    "name": "RemoveProduct",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "name": "_qty",
+        "type": "uint256"
+      }
+    ],
+    "name": "ReplenishStock",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "_description",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "_qty",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_price",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_requestor",
+        "type": "address"
+      }
+    ],
+    "name": "AddedProduct",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "_price",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_requestor",
+        "type": "address"
+      }
+    ],
+    "name": "RemovedProduct",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "_qty",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_price",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_requestor",
+        "type": "address"
+      }
+    ],
+    "name": "ReplenishedStock",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "_qty",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_price",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_requestor",
+        "type": "address"
+      }
+    ],
+    "name": "OrderedProduct",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "_sku",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "_price",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_requestor",
+        "type": "address"
+      }
+    ],
+    "name": "ChangedPrice",
+    "type": "event"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "GetProductIds",
+    "outputs": [
+      {
+        "name": "",
+        "type": "string[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      }
+    ],
+    "name": "GetProductPrice",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_sku",
+        "type": "string"
+      }
+    ],
+    "name": "GetProductQuantity",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

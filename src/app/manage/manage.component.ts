@@ -16,7 +16,7 @@ export class ManageComponent implements OnInit {
   abi: any;
 
   provider: any;
-  contractAddress: string = environment.contractAddressV3;
+  contractAddress: string = environment.contractAddressV4;
   signerObject: any;
   signerAddress: any;
 

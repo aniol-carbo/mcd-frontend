@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ethers} from "ethers";
-import abi from "../../assets/abi/abiV3.json";
+import abi from "../../assets/abi/abiV4.json";
 import {Router} from "@angular/router";
 declare let window: any;
 import {environment} from "../../environments/environment";
@@ -16,7 +16,7 @@ export class InventoryComponent implements OnInit {
   abi: any;
 
   provider: any;
-  contractAddress: string = environment.contractAddressV3;
+  contractAddress: string = environment.contractAddressV4;
   signerObject: any;
   signerAddress: any;
 
