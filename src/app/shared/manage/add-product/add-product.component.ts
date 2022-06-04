@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {ethers} from "ethers";
-import abi from "../../../assets/abi/abiV4.json";
+import abi from "../../../../assets/abi/abiV4.json";
 declare let window: any;
-import {environment} from "../../../environments/environment";
+import {environment} from "../../../../environments/environment";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
-  selector: 'app-order-product',
-  templateUrl: './order-product.component.html',
-  styleUrls: ['./order-product.component.scss'],
+  selector: 'app-add-product',
+  templateUrl: './add-product.component.html',
+  styleUrls: ['./add-product.component.scss'],
   providers: [MatSnackBar]
 })
-export class OrderProductComponent implements OnInit {
+export class AddProductComponent implements OnInit {
 
   contract: any;
   abi: any;
@@ -27,13 +27,22 @@ export class OrderProductComponent implements OnInit {
 
   productForm: FormGroup = this.formBuilder.group({
     productSku: ['', Validators.required],
-    productQuantity: ['', Validators.required]
+    productName: ['', Validators.required],
+    productDescription: ['', Validators.required],
+    productQuantity: ['', Validators.required],
+    productPrice: ['', Validators.required],
   });
 
   constructor(private formBuilder: FormBuilder, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.connectWithContract();
+  }
+
+  connectWithContract(): void {
+    this.loadAbi();
+    this.getMetamaskInfo();
+    this.initializeContract();
   }
 
   loadAbi(): void {
@@ -51,6 +60,7 @@ export class OrderProductComponent implements OnInit {
       this.signerObject = this.provider.getSigner();
       this.signerObject.getAddress().then((value: any) => {
         this.signerAddress = value;
+        this.callConstructor();
       });
     }
     else {
@@ -58,22 +68,31 @@ export class OrderProductComponent implements OnInit {
     }
   }
 
-  connectWithContract(): void {
-    this.loadAbi();
-    this.getMetamaskInfo();
-    this.initializeContract();
+  callConstructor(): void {
+    console.log(this.contract)
+    // this.contract.constructor().then((tx: any) => {
+    //   this.provider.waitForTransaction(tx.hash)
+    //     .then((response: any) => {
+    //       console.log(response);
+    //     })
+    // }).catch((error: any) => {
+    //   console.log(error.code);
+    // });
   }
 
-  orderProduct(): void {
+  addProduct(): void {
     const productSku = this.productForm.controls['productSku'].value;
+    const productName = this.productForm.controls['productName'].value;
+    const productDescription = this.productForm.controls['productDescription'].value;
     const productQuantity = this.productForm.controls['productQuantity'].value;
+    const productPrice = this.productForm.controls['productPrice'].value;
 
-    this.contract.OrderProduct(productSku, productQuantity).then((tx: any) => {
+    this.contract.AddProduct(productSku, productName, productDescription, productQuantity, productPrice).then((tx: any) => {
       this.isLoading = true;
       this.provider.waitForTransaction(tx.hash)
         .then((response: any) => {
           this.isLoading = false;
-          this.snackBar.open(`Successfully ordered ${productQuantity} items`, 'OK', {panelClass: 'success-snackbar'});
+          this.snackBar.open(`Successfully added product '${productSku}'`, 'OK', {panelClass: 'success-snackbar'});
           console.log(response);
         })
     }).catch((error: any) => {

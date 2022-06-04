@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ethers} from "ethers";
-import abi from "../../assets/abi/abiV2.json";
+import abi from "../../../assets/abi/abiV2.json";
 declare let window: any;
-import {environment} from "../../environments/environment";
+import {environment} from "../../../environments/environment";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({

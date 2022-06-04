@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {DbService} from "../services/db.service";
+import {DbService} from "../../core/services/db.service";
 
 @Component({
   selector: 'app-explore',

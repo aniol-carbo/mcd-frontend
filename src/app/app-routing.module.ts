@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ConnectWalletComponent} from "./connect-wallet/connect-wallet.component";
-import {LandingComponent} from "./landing/landing.component";
-import {ExploreComponent} from "./explore/explore.component";
-import {ManageComponent} from "./manage/manage.component";
-import {AddProductComponent} from "./manage/add-product/add-product.component";
-import {OrderProductComponent} from "./manage/order-product/order-product.component";
-import {DeleteProductComponent} from "./manage/delete-product/delete-product.component";
-import {ReplenishStockComponent} from "./manage/replenish-stock/replenish-stock.component";
-import {ExploreByQuantityComponent} from "./explore/explore-by-quantity/explore-by-quantity.component";
-import {ExploreByPriceComponent} from "./explore/explore-by-price/explore-by-price.component";
-import {ProductPriceComponent} from "./explore/product-price/product-price.component";
-import {ProductQuantityComponent} from "./explore/product-quantity/product-quantity.component";
-import {ChangePriceComponent} from "./manage/change-price/change-price.component";
+import {ConnectWalletComponent} from "./shared/connect-wallet/connect-wallet.component";
+import {LandingComponent} from "./shared/landing/landing.component";
+import {ExploreComponent} from "./shared/explore/explore.component";
+import {ManageComponent} from "./shared/manage/manage.component";
+import {AddProductComponent} from "./shared/manage/add-product/add-product.component";
+import {OrderProductComponent} from "./shared/manage/order-product/order-product.component";
+import {DeleteProductComponent} from "./shared/manage/delete-product/delete-product.component";
+import {ReplenishStockComponent} from "./shared/manage/replenish-stock/replenish-stock.component";
+import {ExploreByQuantityComponent} from "./shared/explore/explore-by-quantity/explore-by-quantity.component";
+import {ExploreByPriceComponent} from "./shared/explore/explore-by-price/explore-by-price.component";
+import {ProductPriceComponent} from "./shared/explore/product-price/product-price.component";
+import {ProductQuantityComponent} from "./shared/explore/product-quantity/product-quantity.component";
+import {ChangePriceComponent} from "./shared/manage/change-price/change-price.component";
 
 const routes: Routes = [
   { path: '', component: ConnectWalletComponent },
