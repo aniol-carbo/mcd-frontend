@@ -70,8 +70,10 @@ export class ChangePriceComponent implements OnInit {
 
     this.contract.ChangePrice(productSku, productPrice).then((tx: any) => {
       this.isLoading = true;
+      console.time('changePrice');
       this.provider.waitForTransaction(tx.hash)
         .then((response: any) => {
+          console.timeEnd('changePrice');
           this.isLoading = false;
           this.snackBar.open(`Successfully changed price to ${productPrice}`, 'OK', {panelClass: 'success-snackbar'});
           console.log(response);

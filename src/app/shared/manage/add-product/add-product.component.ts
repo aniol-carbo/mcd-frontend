@@ -89,8 +89,10 @@ export class AddProductComponent implements OnInit {
 
     this.contract.AddProduct(productSku, productName, productDescription, productQuantity, productPrice).then((tx: any) => {
       this.isLoading = true;
+      console.time('addProduct');
       this.provider.waitForTransaction(tx.hash)
         .then((response: any) => {
+          console.timeEnd('addProduct');
           this.isLoading = false;
           this.snackBar.open(`Successfully added product '${productSku}'`, 'OK', {panelClass: 'success-snackbar'});
           console.log(response);

@@ -68,8 +68,10 @@ export class DeleteProductComponent implements OnInit {
 
     this.contract.RemoveProduct(productSku).then((tx: any) => {
       this.isLoading = true;
+      console.time('deleteProduct');
       this.provider.waitForTransaction(tx.hash)
         .then((response: any) => {
+          console.timeEnd('deleteProduct');
           this.isLoading = false;
           this.snackBar.open(`Successfully deleted product '${productSku}'`, 'OK', {panelClass: 'success-snackbar'});
           console.log(response);

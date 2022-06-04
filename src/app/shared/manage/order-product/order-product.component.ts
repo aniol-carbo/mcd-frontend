@@ -70,11 +70,15 @@ export class OrderProductComponent implements OnInit {
 
     this.contract.OrderProduct(productSku, productQuantity).then((tx: any) => {
       this.isLoading = true;
+      // const startTime = new Date().getTime();
+      console.time('orderProduct');
       this.provider.waitForTransaction(tx.hash)
         .then((response: any) => {
+          console.timeEnd('orderProduct');
+          // const endTime = new Date().getTime();
           this.isLoading = false;
           this.snackBar.open(`Successfully ordered ${productQuantity} items`, 'OK', {panelClass: 'success-snackbar'});
-          console.log(response);
+          // console.log(endTime - startTime);
         })
     }).catch((error: any) => {
       // if (error.code === "INVALID_ARGUMENT") {

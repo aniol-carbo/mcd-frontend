@@ -70,8 +70,10 @@ export class ReplenishStockComponent implements OnInit {
 
     this.contract.ReplenishStock(productSku, productQuantity).then((tx: any) => {
       this.isLoading = true;
+      console.time('replenishStock');
       this.provider.waitForTransaction(tx.hash)
         .then((response: any) => {
+          console.timeEnd('replenishStock');
           this.isLoading = false;
           this.snackBar.open(`Successfully replenished ${productQuantity} items`, 'OK', {panelClass: 'success-snackbar'});
           console.log(response);
