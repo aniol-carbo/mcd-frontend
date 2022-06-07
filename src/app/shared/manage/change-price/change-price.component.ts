@@ -42,7 +42,6 @@ export class ChangePriceComponent implements OnInit {
 
   initializeContract(): void {
     this.contract = new ethers.Contract(this.contractAddress, this.abi, this.signerObject);
-    console.log(this.contract)
   }
 
   getMetamaskInfo(): void {
@@ -76,15 +75,8 @@ export class ChangePriceComponent implements OnInit {
           console.timeEnd('changePrice');
           this.isLoading = false;
           this.snackBar.open(`Successfully changed price to ${productPrice}`, 'OK', {panelClass: 'success-snackbar'});
-          console.log(response);
         })
     }).catch((error: any) => {
-      // if (error.code === "INVALID_ARGUMENT") {
-      //   if (this.receiverAddress === undefined) alert("Receiver address cannot be empty!");
-      //   else alert("Invalid receiver address!");
-      // } else {
-      // console.log(error.code);
-      // }
       this.snackBar.open(error.code, 'OK', {panelClass: 'error-snackbar'});
       console.log(error);
     });

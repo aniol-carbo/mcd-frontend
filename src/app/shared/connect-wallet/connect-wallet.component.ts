@@ -17,7 +17,6 @@ export class ConnectWalletComponent implements OnInit {
   }
 
   async connectWallet() {
-    //Get provider
     let ethereum = window.ethereum;
     if (ethereum === undefined) {
       alert("You need Metamask in order to Connect your Wallet")

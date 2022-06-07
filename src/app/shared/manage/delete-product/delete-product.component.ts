@@ -41,7 +41,6 @@ export class DeleteProductComponent implements OnInit {
 
   initializeContract(): void {
     this.contract = new ethers.Contract(this.contractAddress, this.abi, this.signerObject);
-    console.log(this.contract)
   }
 
   getMetamaskInfo(): void {
@@ -74,15 +73,8 @@ export class DeleteProductComponent implements OnInit {
           console.timeEnd('deleteProduct');
           this.isLoading = false;
           this.snackBar.open(`Successfully deleted product '${productSku}'`, 'OK', {panelClass: 'success-snackbar'});
-          console.log(response);
         })
     }).catch((error: any) => {
-      // if (error.code === "INVALID_ARGUMENT") {
-      //   if (this.receiverAddress === undefined) alert("Receiver address cannot be empty!");
-      //   else alert("Invalid receiver address!");
-      // } else {
-      // console.log(error.code);
-      // }
       this.snackBar.open(error.code, 'OK', {panelClass: 'error-snackbar'});
       console.log(error);
     });

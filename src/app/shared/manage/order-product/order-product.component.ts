@@ -42,7 +42,6 @@ export class OrderProductComponent implements OnInit {
 
   initializeContract(): void {
     this.contract = new ethers.Contract(this.contractAddress, this.abi, this.signerObject);
-    console.log(this.contract)
   }
 
   getMetamaskInfo(): void {
@@ -70,23 +69,14 @@ export class OrderProductComponent implements OnInit {
 
     this.contract.OrderProduct(productSku, productQuantity).then((tx: any) => {
       this.isLoading = true;
-      // const startTime = new Date().getTime();
       console.time('orderProduct');
       this.provider.waitForTransaction(tx.hash)
         .then((response: any) => {
           console.timeEnd('orderProduct');
-          // const endTime = new Date().getTime();
           this.isLoading = false;
           this.snackBar.open(`Successfully ordered ${productQuantity} items`, 'OK', {panelClass: 'success-snackbar'});
-          // console.log(endTime - startTime);
         })
     }).catch((error: any) => {
-      // if (error.code === "INVALID_ARGUMENT") {
-      //   if (this.receiverAddress === undefined) alert("Receiver address cannot be empty!");
-      //   else alert("Invalid receiver address!");
-      // } else {
-      // console.log(error.code);
-      // }
       this.snackBar.open(error.code, 'OK', {panelClass: 'error-snackbar'});
       console.log(error);
     });

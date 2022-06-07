@@ -51,7 +51,6 @@ export class AddProductComponent implements OnInit {
 
   initializeContract(): void {
     this.contract = new ethers.Contract(this.contractAddress, this.abi, this.signerObject);
-    console.log(this.contract)
   }
 
   getMetamaskInfo(): void {
@@ -60,24 +59,11 @@ export class AddProductComponent implements OnInit {
       this.signerObject = this.provider.getSigner();
       this.signerObject.getAddress().then((value: any) => {
         this.signerAddress = value;
-        this.callConstructor();
       });
     }
     else {
       this.router.navigate(['/'])
     }
-  }
-
-  callConstructor(): void {
-    console.log(this.contract)
-    // this.contract.constructor().then((tx: any) => {
-    //   this.provider.waitForTransaction(tx.hash)
-    //     .then((response: any) => {
-    //       console.log(response);
-    //     })
-    // }).catch((error: any) => {
-    //   console.log(error.code);
-    // });
   }
 
   addProduct(): void {
@@ -95,15 +81,8 @@ export class AddProductComponent implements OnInit {
           console.timeEnd('addProduct');
           this.isLoading = false;
           this.snackBar.open(`Successfully added product '${productSku}'`, 'OK', {panelClass: 'success-snackbar'});
-          console.log(response);
         })
     }).catch((error: any) => {
-      // if (error.code === "INVALID_ARGUMENT") {
-      //   if (this.receiverAddress === undefined) alert("Receiver address cannot be empty!");
-      //   else alert("Invalid receiver address!");
-      // } else {
-      // console.log(error.code);
-      // }
       this.snackBar.open(error.code, 'OK', {panelClass: 'error-snackbar'});
       console.log(error);
     });

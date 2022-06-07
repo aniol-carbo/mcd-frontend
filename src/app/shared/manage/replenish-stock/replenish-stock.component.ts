@@ -76,15 +76,8 @@ export class ReplenishStockComponent implements OnInit {
           console.timeEnd('replenishStock');
           this.isLoading = false;
           this.snackBar.open(`Successfully replenished ${productQuantity} items`, 'OK', {panelClass: 'success-snackbar'});
-          console.log(response);
-        })
+        });
     }).catch((error: any) => {
-      // if (error.code === "INVALID_ARGUMENT") {
-      //   if (this.receiverAddress === undefined) alert("Receiver address cannot be empty!");
-      //   else alert("Invalid receiver address!");
-      // } else {
-      // console.log(error.code);
-      // }
       this.snackBar.open(error.code, 'OK', {panelClass: 'error-snackbar'});
       console.log(error);
     });
