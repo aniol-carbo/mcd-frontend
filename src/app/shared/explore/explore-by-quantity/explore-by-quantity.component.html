@@ -25,7 +25,7 @@
     </div>
     <div class="order-selector">
       <mat-form-field appearance="fill">
-        <mat-label>Quantity</mat-label>
+        <mat-label>Order</mat-label>
         <mat-select [(value)]="selectedOrder">
           <mat-option *ngFor="let order of orderBy" [value]="order.value">
             {{order.viewValue}}

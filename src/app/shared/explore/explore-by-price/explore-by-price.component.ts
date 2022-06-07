@@ -20,8 +20,8 @@ export class ExploreByPriceComponent implements OnInit {
   ];
 
   orderBy: Option[] = [
-    {value: 'asc', viewValue: 'De menor a mayor'},
-    {value: 'desc', viewValue: 'De mayor a menor'}
+    {value: 'asc', viewValue: 'Lowest to highest'},
+    {value: 'desc', viewValue: 'Highest to lowest'}
   ];
 
   range = new FormGroup({
