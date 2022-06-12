@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {DbService} from "../../../core/services/db.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-explore-by-price',
   templateUrl: './product-price.component.html',
   styleUrls: ['./product-price.component.scss'],
-  providers: [DbService]
+  providers: [DbService, MatSnackBar]
 })
 export class ProductPriceComponent implements OnInit {
 
@@ -14,9 +15,9 @@ export class ProductPriceComponent implements OnInit {
   formattedDate: string = '';
   productSku: string = '';
 
-  productInfo!: Product;
+  productInfo: Product | undefined = undefined;
 
-  constructor(private dbService: DbService) { }
+  constructor(private dbService: DbService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -26,7 +27,12 @@ export class ProductPriceComponent implements OnInit {
     this.formattedDate = new Date(this.date.value).toLocaleDateString();
 
     this.dbService.getProductPrice(this.productSku, date).then((result: any) => {
-      this.productInfo = result;
+      if (result.message) {
+        this.productInfo = undefined;
+        this.snackBar.open(result.message, 'OK', {panelClass: 'error-snackbar', duration: 3000});
+      } else {
+        this.productInfo = result;
+      }
     })
   }
 }
