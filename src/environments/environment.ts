@@ -7,7 +7,9 @@ export const environment = {
   contractAddressV1: "0xCD620100A7D90E22A60E5c1a78A5029d0daC7828",
   contractAddressV2: "0x8Fb8b7A6CAF5B49898Bd565B9807eB7472d72027",
   contractAddressV3: "0x15c7C25AA9Ef31B2A9B77967226A011A49F5a582",
-  contractAddressV4: "0x566b0A1a6822FF03a8bB505f9907D0a9182839aE"
+  contractAddressV4: "0x566b0A1a6822FF03a8bB505f9907D0a9182839aE",
+  contractAddressFuji: "0xDeA4DBEa986aC8D874d87E5EB5Cb9d685303c117",
+  contractAddressMumbai: "0xC1E641e147112aC5d17fD5eb3aDA61FDc332f6F2",
 };
 
 /*
