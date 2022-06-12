@@ -29,7 +29,7 @@ export class ExploreByPriceComponent implements OnInit {
     end: new FormControl(),
   });
 
-  displayedColumns: string[] = ['sku', 'name', 'price'];
+  displayedColumns: string[] = ['sku', 'name', 'price', 'totalPrice', 'date'];
   dataSource: any = [];
 
   constructor(private dbService: DbService) { }

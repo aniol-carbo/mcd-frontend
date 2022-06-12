@@ -29,7 +29,7 @@ export class ExploreByQuantityComponent implements OnInit {
     end: new FormControl(),
   });
 
-  displayedColumns: string[] = ['sku', 'name', 'total'];
+  displayedColumns: string[] = ['sku', 'name', 'total', 'date'];
   dataSource: any = [];
 
   constructor(private dbService: DbService) { }
