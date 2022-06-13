@@ -6,7 +6,19 @@ html {
   height: 100vh;
   display: block;
   justify-content: center;
-  background-color: #34495eff;
+  /*background-color: #34495eff;*/
+}
+
+.left {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+.right {
+  width: 50%;
+  height: 100%;
+  float: right;
 }
 
 .dataContainer {
@@ -15,15 +27,17 @@ html {
   justify-content: center;
   width: 70%;
   margin: auto;
-  padding-top: 16rem;
+  padding-top: 10rem;
   text-align: center;
 }
 
-.logo {
+.title {
   text-align: center;
   font-size: 48px;
   font-weight: 600;
-  color: white;
+  width: 50vw;
+  margin: auto;
+  /*color: white;*/
   font-family: 'Raleway', sans-serif;
 }
 
@@ -31,12 +45,31 @@ html {
   text-align: center;
   font-size: 26px;
   margin-top: 70px;
-  color: white;
+  /*color: white;*/
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
 }
 
 #button {
-  background-color: #29b6d8ff;
+  /*background-color: #29b6d8ff;*/
+  background-color: aquamarine;
   width: 300px;
+}
+.images-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 100px;
+}
+.image-container {
+  width: 50%;
+}
+.image-left {
+  width: 500px;
+  height: auto;
+  float: left;
+}
+.image-right {
+  width: 500px;
+  height: auto;
+  float: right;
 }
