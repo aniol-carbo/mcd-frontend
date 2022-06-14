@@ -6,19 +6,12 @@ html {
   height: 100vh;
   display: block;
   justify-content: center;
-  /*background-color: #34495eff;*/
 }
 
 .left {
   width: 50%;
   height: 100%;
   float: left;
-}
-
-.right {
-  width: 50%;
-  height: 100%;
-  float: right;
 }
 
 .dataContainer {
@@ -37,7 +30,6 @@ html {
   font-weight: 600;
   width: 50vw;
   margin: auto;
-  /*color: white;*/
   font-family: 'Raleway', sans-serif;
 }
 
@@ -51,9 +43,11 @@ html {
 }
 
 #button {
-  /*background-color: #29b6d8ff;*/
-  background-color: aquamarine;
+  background-color: #75daff;
   width: 300px;
+  height: 60px;
+  font-weight: 600;
+  font-size: 16px;
 }
 .images-container {
   display: flex;
